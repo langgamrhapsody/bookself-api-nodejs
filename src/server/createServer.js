@@ -1,4 +1,5 @@
 const Hapi = require("@hapi/hapi");
+const routes = require("../api/routes");
 
 const createServer = () => {
   const server = Hapi.server({
@@ -10,6 +11,8 @@ const createServer = () => {
       },
     },
   });
+
+  server.route(routes);
 
   return server;
 };
