@@ -1,7 +1,8 @@
 const {
   addNewBookHandler,
   getAllBooksHandler,
-  getSpecificBookHandler,
+  getBookDetailHandler,
+  updateBookHandler,
 } = require("./books/handler");
 const { SPECIFIC_BOOK_ROUTE, BOOK_ROUTE } = require("./routeConstants");
 
@@ -19,7 +20,12 @@ const routes = [
   {
     method: "GET",
     path: SPECIFIC_BOOK_ROUTE,
-    handler: getSpecificBookHandler,
+    handler: getBookDetailHandler,
+  },
+  {
+    method: "PUT",
+    path: SPECIFIC_BOOK_ROUTE,
+    handler: updateBookHandler,
   },
 ];
 
