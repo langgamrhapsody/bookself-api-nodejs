@@ -90,13 +90,19 @@ const getAllBooksHandler = (request, h) => {
 
   let books = bookshelf;
 
-  books = books.filter((book) => {
+  const filteredBooks = books.filter((book) => {
     return (
       (!name || book.name.toLowerCase().includes(name.toLowerCase())) &&
       (reading === undefined || book.reading === booleanValue(reading)) &&
       (finished === undefined || book.finished === booleanValue(finished))
     );
   });
+
+  books = filteredBooks.map((book) => ({
+    id: book.id,
+    name: book.name,
+    publisher: book.publisher,
+  }));
 
   const response = h.response({
     status: "success",
