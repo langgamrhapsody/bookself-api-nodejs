@@ -80,4 +80,33 @@ const addNewBookHandler = (request, h) => {
   return response;
 };
 
-module.exports = { addNewBookHandler };
+const getAllBooksHandler = (request, h) => {
+  const { name, reading, finished } = request.query;
+
+  const booleanValue = (v) => {
+    const newValue = parseInt(v);
+    return newValue === 1 ? true : false;
+  };
+
+  let books = bookshelf;
+
+  books = books.filter((book) => {
+    return (
+      (!name || book.name.toLowerCase().includes(name.toLowerCase())) &&
+      (reading === undefined || book.reading === booleanValue(reading)) &&
+      (finished === undefined || book.finished === booleanValue(finished))
+    );
+  });
+
+  const response = h.response({
+    status: "success",
+    data: {
+      books: books,
+    },
+  });
+
+  response.code(200);
+  return response;
+};
+
+module.exports = { addNewBookHandler, getAllBooksHandler };
