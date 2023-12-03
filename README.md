@@ -20,14 +20,14 @@ The recommended Node.js version is v18.13.0.
 
 2. **Install Dependencies:** With the dependencies installed, build and run the app with the following command.
 
-```
-npm run start
-```
+   ```
+   npm run start
+   ```
 
 Alternatively, if you want to run the app when on development to use nodemon for auto restart the server, run the following command
 
-```
-npm run start:dev
-```
+    ```
+    npm run start:dev
+    ```
 
 The app will start and be accessible at `http://localhost:9000`.
