@@ -3,6 +3,7 @@ const {
   getAllBooksHandler,
   getBookDetailHandler,
   updateBookHandler,
+  deleteBookHandler,
 } = require("./books/handler");
 const { SPECIFIC_BOOK_ROUTE, BOOK_ROUTE } = require("./routeConstants");
 
@@ -26,6 +27,11 @@ const routes = [
     method: "PUT",
     path: SPECIFIC_BOOK_ROUTE,
     handler: updateBookHandler,
+  },
+  {
+    method: "DELETE",
+    path: SPECIFIC_BOOK_ROUTE,
+    handler: deleteBookHandler,
   },
 ];
 
