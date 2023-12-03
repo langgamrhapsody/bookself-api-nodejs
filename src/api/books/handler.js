@@ -116,8 +116,8 @@ const getAllBooksHandler = (request, h) => {
 };
 
 const getSpecificBookHandler = (request, h) => {
-  const { id } = request.params;
-  const book = bookshelf.filter((n) => n.id === id)[0];
+  const { bookId } = request.params;
+  const book = bookshelf.filter((n) => n.id === bookId)[0];
 
   if (book !== undefined) {
     return {
